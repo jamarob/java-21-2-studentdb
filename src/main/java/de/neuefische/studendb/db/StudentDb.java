@@ -22,4 +22,9 @@ public class StudentDb {
         }
         return result;
     }
+
+    public Student randomStudent() {
+        int index = (int) Math.floor(Math.random() * students.length);
+        return students[index];
+    }
 }
