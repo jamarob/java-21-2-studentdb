@@ -7,8 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class StudentDbTest {
 
@@ -159,5 +158,43 @@ class StudentDbTest {
 
         // Then
         assertArrayEquals(expectedStudents, actualStudents);
+    }
+
+
+    @Test
+    @DisplayName("find by id should return student with matching id")
+    public void getStudentById() {
+        //Given
+        Student[] givenStudents = {
+                new Student("Hans", "12"),
+                new Student("Jane", "42"),
+                new Student("Peter", "23")
+        };
+        StudentDb studentDb = new StudentDb(givenStudents);
+
+        //When
+        Student student = studentDb.findById("42");
+
+        //THEN
+        assertEquals(new Student("Jane", "42"), student);
+
+    }
+
+    @Test
+    @DisplayName("find by id should return null when id not found")
+    public void getStudentByIdNotFound() {
+        //Given
+        Student[] givenStudents = {
+                new Student("Hans", "12"),
+                new Student("Jane", "42"),
+                new Student("Peter", "23")
+        };
+        StudentDb studentDb = new StudentDb(givenStudents);
+
+        //When
+        Student student = studentDb.findById("2");
+
+        //THEN
+        assertNull(student);
     }
 }
