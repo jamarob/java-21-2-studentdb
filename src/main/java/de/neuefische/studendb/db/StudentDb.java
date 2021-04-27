@@ -69,13 +69,4 @@ public class StudentDb {
     }
 
 
-    public Student findById(String id){
-        for (Student student : students) {
-            if(student.getId().equals(id)){
-                return student;
-            }
-        }
-        return null;
-    }
-
 }
