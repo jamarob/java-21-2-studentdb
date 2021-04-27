@@ -13,4 +13,13 @@ public class StudentDb {
     public Student[] list() {
         return students;
     }
+
+    @Override
+    public String toString(){
+        String result = "";
+        for (int i = 0; i < students.length; i++) {
+            result += students[i] + "\n";
+        }
+        return result;
+    }
 }
