@@ -1,16 +1,16 @@
 package de.neuefische.studendb.db;
 
-import de.neuefische.studendb.model.Student;
+import de.neuefische.studendb.model.MagicMathStudent;
 
 public class StudentDb {
 
-    private Student[] students;
+    private MagicMathStudent[] students;
 
-    public StudentDb(Student[] students) {
+    public StudentDb(MagicMathStudent[] students) {
         this.students = students;
     }
 
-    public Student[] list() {
+    public MagicMathStudent[] list() {
         return students;
     }
 
@@ -23,13 +23,13 @@ public class StudentDb {
         return result;
     }
 
-    public Student randomStudent() {
+    public MagicMathStudent randomStudent() {
         int index = (int) Math.floor(Math.random() * students.length);
         return students[index];
     }
 
-    public void add(Student student) {
-        Student[] updatedStudents = new Student[students.length+1];
+    public void add(MagicMathStudent student) {
+        MagicMathStudent[] updatedStudents = new MagicMathStudent[students.length+1];
 
         for (int i = 0; i < students.length; i++) {
             updatedStudents[i] = students[i];
@@ -40,12 +40,12 @@ public class StudentDb {
         students = updatedStudents;
     }
 
-    public void remove(Student student) {
+    public void remove(MagicMathStudent student) {
         int foundIndex = findIndex(student);
         if(foundIndex < 0){
             return;
         }
-        Student[] updatedStudents = new Student[students.length-1];
+        MagicMathStudent[] updatedStudents = new MagicMathStudent[students.length-1];
 
         for (int i = 0; i < students.length; i++) {
             if(i < foundIndex){
@@ -59,7 +59,7 @@ public class StudentDb {
         students = updatedStudents;
     }
 
-    private int findIndex(Student student) {
+    private int findIndex(MagicMathStudent student) {
         for (int i = 0; i < students.length; i++) {
             if(students[i].equals(student)){
                 return i;
