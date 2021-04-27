@@ -1,15 +1,17 @@
 package de.neuefische.studendb;
 
 import de.neuefische.studendb.db.StudentDb;
+import de.neuefische.studendb.model.ComputerScienceStudent;
+import de.neuefische.studendb.model.HistoryStudent;
 import de.neuefische.studendb.model.Student;
 
 public class AppMain {
 
     public static void main(String[] args) {
         Student[] students = new Student[]{
-                new Student("Jane", "42"),
-                new Student("Klaus", "13"),
-                new Student("Franky", "100")
+                new HistoryStudent("Jane", "42"),
+                new ComputerScienceStudent("Klaus", "13", "Pascal"),
+                new HistoryStudent("Franky", "100")
         };
         StudentDb studentDb = new StudentDb(students);
 
