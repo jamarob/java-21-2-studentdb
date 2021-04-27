@@ -1,6 +1,6 @@
 package de.neuefische.studendb.db;
 
-import de.neuefische.studendb.model.MagicMathStudent;
+import de.neuefische.studendb.model.CoffeeStudent;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -15,19 +15,19 @@ class MagicMathStudentDbTest {
     private static Arguments[] provideTestAddArguments() {
         return new Arguments[]{
                 Arguments.of(
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Student 1", "1"),
-                                new MagicMathStudent("Student 2", "2")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Student 1", "1"),
+                                new CoffeeStudent("Student 2", "2")
                         },
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Student 1", "1"),
-                                new MagicMathStudent("Student 2", "2"),
-                                new MagicMathStudent("Jane", "42")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Student 1", "1"),
+                                new CoffeeStudent("Student 2", "2"),
+                                new CoffeeStudent("Jane", "42")
                         }
                 ),
                 Arguments.of(
-                        new MagicMathStudent[]{},
-                        new MagicMathStudent[]{new MagicMathStudent("Jane", "42")}
+                        new CoffeeStudent[]{},
+                        new CoffeeStudent[]{new CoffeeStudent("Jane", "42")}
                 )
         };
     }
@@ -35,55 +35,55 @@ class MagicMathStudentDbTest {
     private static Arguments[] provideTestRemoveArguments() {
         return new Arguments[]{
                 Arguments.of(
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Jane", "42"),
-                                new MagicMathStudent("Peter", "23")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Jane", "42"),
+                                new CoffeeStudent("Peter", "23")
                         },
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Peter", "23")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Peter", "23")
                         }
                 ),
                 Arguments.of(
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Peter", "23")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Peter", "23")
                         },
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Peter", "23")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Peter", "23")
                         }
                 ),
                 Arguments.of(
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Jane", "42"),
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Peter", "23")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Jane", "42"),
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Peter", "23")
                         },
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Peter", "23")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Peter", "23")
                         }
                 ),
                 Arguments.of(
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Peter", "23"),
-                                new MagicMathStudent("Jane", "42")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Peter", "23"),
+                                new CoffeeStudent("Jane", "42")
                         },
-                        new MagicMathStudent[]{
-                                new MagicMathStudent("Hans", "12"),
-                                new MagicMathStudent("Peter", "23")
+                        new CoffeeStudent[]{
+                                new CoffeeStudent("Hans", "12"),
+                                new CoffeeStudent("Peter", "23")
                         }
                 ),
                 Arguments.of(
-                        new MagicMathStudent[]{},
-                        new MagicMathStudent[]{}
+                        new CoffeeStudent[]{},
+                        new CoffeeStudent[]{}
                 ),
                 Arguments.of(
-                        new MagicMathStudent[]{new MagicMathStudent("Jane", "42")},
-                        new MagicMathStudent[]{}
+                        new CoffeeStudent[]{new CoffeeStudent("Jane", "42")},
+                        new CoffeeStudent[]{}
                 )
         };
     }
@@ -92,21 +92,21 @@ class MagicMathStudentDbTest {
     @DisplayName("list() returns all students in the db")
     public void testList() {
         // Given
-        MagicMathStudent[] students = new MagicMathStudent[]{
-                new MagicMathStudent("Jane", "42"),
-                new MagicMathStudent("Klaus", "13"),
-                new MagicMathStudent("Franky", "100")
+        CoffeeStudent[] students = new CoffeeStudent[]{
+                new CoffeeStudent("Jane", "42"),
+                new CoffeeStudent("Klaus", "13"),
+                new CoffeeStudent("Franky", "100")
         };
         StudentDb studentDb = new StudentDb(students);
 
         // When
-        MagicMathStudent[] actual = studentDb.list();
+        CoffeeStudent[] actual = studentDb.list();
 
         // Then
-        MagicMathStudent[] expected = new MagicMathStudent[]{
-                new MagicMathStudent("Jane", "42"),
-                new MagicMathStudent("Klaus", "13"),
-                new MagicMathStudent("Franky", "100")
+        CoffeeStudent[] expected = new CoffeeStudent[]{
+                new CoffeeStudent("Jane", "42"),
+                new CoffeeStudent("Klaus", "13"),
+                new CoffeeStudent("Franky", "100")
         };
         assertArrayEquals(expected, actual);
     }
@@ -115,10 +115,10 @@ class MagicMathStudentDbTest {
     @DisplayName("toString() returns a formatted list of all students")
     public void testToString() {
         // Given
-        MagicMathStudent[] students = new MagicMathStudent[]{
-                new MagicMathStudent("Jane", "42"),
-                new MagicMathStudent("Klaus", "13"),
-                new MagicMathStudent("Franky", "100")
+        CoffeeStudent[] students = new CoffeeStudent[]{
+                new CoffeeStudent("Jane", "42"),
+                new CoffeeStudent("Klaus", "13"),
+                new CoffeeStudent("Franky", "100")
         };
         StudentDb studentDb = new StudentDb(students);
 
@@ -134,14 +134,14 @@ class MagicMathStudentDbTest {
 
     @ParameterizedTest
     @MethodSource("provideTestAddArguments")
-    public void testAdd(MagicMathStudent[] givenStudents, MagicMathStudent[] expectedStudents) {
+    public void testAdd(CoffeeStudent[] givenStudents, CoffeeStudent[] expectedStudents) {
         // Given
         StudentDb studentDb = new StudentDb(givenStudents);
-        MagicMathStudent student = new MagicMathStudent("Jane", "42");
+        CoffeeStudent student = new CoffeeStudent("Jane", "42");
 
         // When
         studentDb.add(student);
-        MagicMathStudent[] actualStudents = studentDb.list();
+        CoffeeStudent[] actualStudents = studentDb.list();
 
         // Then
         assertArrayEquals(expectedStudents, actualStudents);
@@ -149,13 +149,13 @@ class MagicMathStudentDbTest {
 
     @ParameterizedTest
     @MethodSource("provideTestRemoveArguments")
-    public void testRemove(MagicMathStudent[] givenStudents, MagicMathStudent[] expectedStudents) {
+    public void testRemove(CoffeeStudent[] givenStudents, CoffeeStudent[] expectedStudents) {
         // Given
         StudentDb studentDb = new StudentDb(givenStudents);
 
         // When
-        studentDb.remove(new MagicMathStudent("Jane", "42"));
-        MagicMathStudent[] actualStudents = studentDb.list();
+        studentDb.remove(new CoffeeStudent("Jane", "42"));
+        CoffeeStudent[] actualStudents = studentDb.list();
 
         // Then
         assertArrayEquals(expectedStudents, actualStudents);

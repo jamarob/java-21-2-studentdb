@@ -1,16 +1,16 @@
 package de.neuefische.studendb.db;
 
-import de.neuefische.studendb.model.MagicMathStudent;
+import de.neuefische.studendb.model.CoffeeStudent;
 
 public class StudentDb {
 
-    private MagicMathStudent[] students;
+    private CoffeeStudent[] students;
 
-    public StudentDb(MagicMathStudent[] students) {
+    public StudentDb(CoffeeStudent[] students) {
         this.students = students;
     }
 
-    public MagicMathStudent[] list() {
+    public CoffeeStudent[] list() {
         return students;
     }
 
@@ -23,13 +23,13 @@ public class StudentDb {
         return result;
     }
 
-    public MagicMathStudent randomStudent() {
+    public CoffeeStudent randomStudent() {
         int index = (int) Math.floor(Math.random() * students.length);
         return students[index];
     }
 
-    public void add(MagicMathStudent student) {
-        MagicMathStudent[] updatedStudents = new MagicMathStudent[students.length+1];
+    public void add(CoffeeStudent student) {
+        CoffeeStudent[] updatedStudents = new CoffeeStudent[students.length+1];
 
         for (int i = 0; i < students.length; i++) {
             updatedStudents[i] = students[i];
@@ -40,12 +40,12 @@ public class StudentDb {
         students = updatedStudents;
     }
 
-    public void remove(MagicMathStudent student) {
+    public void remove(CoffeeStudent student) {
         int foundIndex = findIndex(student);
         if(foundIndex < 0){
             return;
         }
-        MagicMathStudent[] updatedStudents = new MagicMathStudent[students.length-1];
+        CoffeeStudent[] updatedStudents = new CoffeeStudent[students.length-1];
 
         for (int i = 0; i < students.length; i++) {
             if(i < foundIndex){
@@ -59,7 +59,7 @@ public class StudentDb {
         students = updatedStudents;
     }
 
-    private int findIndex(MagicMathStudent student) {
+    private int findIndex(CoffeeStudent student) {
         for (int i = 0; i < students.length; i++) {
             if(students[i].equals(student)){
                 return i;

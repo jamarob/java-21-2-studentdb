@@ -5,4 +5,4 @@ public interface Student {
 
     String getId();
 
-    String calculateGrades();}
+    String getSpecialSkill();}

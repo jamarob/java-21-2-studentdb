@@ -2,11 +2,10 @@ package de.neuefische.studendb.model;
 
 import java.util.Objects;
 
-public class MagicMathStudent implements Student {
+public class MagicMathStudent implements Student{
 
     private String name;
     private String id;
-    private String grade;
 
     public MagicMathStudent(String name, String id){
         this.name = name;
@@ -25,18 +24,13 @@ public class MagicMathStudent implements Student {
         return id;
     }
 
-    @Override
-    public String calculateGrades() {
-        return "9";
+    public String getSpecialSkill() {
+        return "Solves every possible problem through math AND science!";
     }
 
     public void setId(String id) {
         this.id = id;
     }
-
-    public void setGrade(String grade) {this.grade = grade; }
-
-    public String getGrade() { return grade; }
 
     @Override
     public boolean equals(Object o) {

@@ -2,13 +2,12 @@ package de.neuefische.studendb.model;
 
 import java.util.Objects;
 
-public class CoffeStudent implements Student{
+public class CoffeeStudent implements Student {
 
     private String name;
     private String id;
-    private String grade;
 
-    public CoffeStudent(String name, String id){
+    public CoffeeStudent(String name, String id){
         this.name = name;
         this.id = id;
     }
@@ -26,23 +25,19 @@ public class CoffeStudent implements Student{
     }
 
     @Override
-    public String calculateGrades() {
-        return "1";
+    public String getSpecialSkill() {
+        return "Is always fully awake!";
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setGrade(String grade) {this.grade = grade; }
-
-    public String getGrade() { return grade; }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CoffeStudent student = (CoffeStudent) o;
+        CoffeeStudent student = (CoffeeStudent) o;
         return Objects.equals(name, student.name) && Objects.equals(id, student.id);
     }
 

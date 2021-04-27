@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MagicMathStudentTest {
+class CoffeeStudentTest {
 
     @Test
     @DisplayName("A students name can be set")
@@ -50,8 +50,8 @@ class MagicMathStudentTest {
 
     private static Arguments[] provideTestEqualsArguments(){
         return new Arguments[]{
-            Arguments.of(new CoffeeStudent("Jane", "42"), new CoffeeStudent("Jane","42"), true),
-            Arguments.of(new CoffeeStudent("Jane", "42"), new CoffeeStudent("John","42"), false),
+                Arguments.of(new CoffeeStudent("Jane", "42"), new CoffeeStudent("Jane","42"), true),
+                Arguments.of(new CoffeeStudent("Jane", "42"), new CoffeeStudent("John","42"), false),
         };
     }
 
@@ -84,14 +84,14 @@ class MagicMathStudentTest {
     }
 
     @Test
-    @DisplayName("MagicMathStudents skill is solving EVERY problem using math and science")
+    @DisplayName("Coffeestudents skill is beeing really awake ALL THE TIME")
     public void testGetSpecialSkill(){
         // GIVEN
-        String expected = "Solves every possible problem through math AND science!";
-        Student magicMathStudent = new MagicMathStudent("Jimmy", "203");
+        String expected = "Is always fully awake!";
+        Student coffeStudent = new CoffeeStudent("Jimmy", "203");
 
         // WHEN
-        String actual = magicMathStudent.getSpecialSkill();
+        String actual = coffeStudent.getSpecialSkill();
 
         //THEN
         assertEquals(expected, actual);
