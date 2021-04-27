@@ -8,13 +8,13 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class StudentTest {
+class HistoryStudentTest {
 
     @Test
     @DisplayName("A students name can be set")
     public void testSetAndGetName(){
         // Given
-        Student student = new Student("Jane Doe", "42");
+        HistoryStudent student = new HistoryStudent("Jane Doe", "42");
 
         // When
         student.setName("John Doe");
@@ -28,7 +28,7 @@ class StudentTest {
     @DisplayName("A students id can be set")
     public void setAndGetId(){
         // Given
-        Student student = new Student("Jane Doe", "42");
+        HistoryStudent student = new HistoryStudent("Jane Doe", "42");
 
         // When
         student.setId("113");
@@ -40,7 +40,7 @@ class StudentTest {
 
     @ParameterizedTest(name = "equals() of {0} and {1} is {2}")
     @MethodSource("provideTestEqualsArguments")
-    public void testEquals(Student studentA, Student studentB, boolean expected){
+    public void testEquals(HistoryStudent studentA, HistoryStudent studentB, boolean expected){
         // When
         boolean actual = studentA.equals(studentB);
 
@@ -50,8 +50,8 @@ class StudentTest {
 
     private static Arguments[] provideTestEqualsArguments(){
         return new Arguments[]{
-            Arguments.of(new Student("Jane", "42"), new Student("Jane","42"), true),
-            Arguments.of(new Student("Jane", "42"), new Student("John","42"), false),
+            Arguments.of(new HistoryStudent("Jane", "42"), new HistoryStudent("Jane","42"), true),
+            Arguments.of(new HistoryStudent("Jane", "42"), new HistoryStudent("John","42"), false),
         };
     }
 
@@ -59,7 +59,7 @@ class StudentTest {
     @DisplayName("toString() returns a formatted student")
     public void testToString(){
         // Given
-        Student student = new Student("Jane", "42");
+        HistoryStudent student = new HistoryStudent("Jane", "42");
 
         // When
         String actual = student.toString();
@@ -73,8 +73,8 @@ class StudentTest {
     @DisplayName("Students with same name and id have the same hash code")
     public void testHashCode(){
         // Given
-        Student studentA = new Student("Jane", "42");
-        Student studentB = new Student("Jane", "42");
+        HistoryStudent studentA = new HistoryStudent("Jane", "42");
+        HistoryStudent studentB = new HistoryStudent("Jane", "42");
 
         // When
         boolean actual = studentA.hashCode() == studentB.hashCode();
