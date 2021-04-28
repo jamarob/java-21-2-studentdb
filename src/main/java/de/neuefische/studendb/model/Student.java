@@ -2,7 +2,7 @@ package de.neuefische.studendb.model;
 
 import java.util.Objects;
 
-public class Student {
+public abstract class Student {
 
     private String name;
     private String id;
@@ -11,6 +11,8 @@ public class Student {
         this.name = name;
         this.id = id;
     }
+
+    abstract String amountOfModules();
 
     public void setName(String name) {
         this.name = name;
